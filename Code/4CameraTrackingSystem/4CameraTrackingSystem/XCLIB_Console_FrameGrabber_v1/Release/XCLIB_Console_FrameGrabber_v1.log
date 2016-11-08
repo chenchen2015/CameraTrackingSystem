@@ -1,0 +1,32 @@
+﻿Build started 3/10/2015 4:15:48 PM.
+     1>Project "C:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Console_FrameGrabber_v1\XCLIB_Console_FrameGrabber_v1.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Release\XCLIB_Console_FrameGrabber_v1.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\EPIX\XCLIB" XCLIBW64.lib PXIPLW64.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Release\XCLIB_Console_FrameGrabber_v1.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Release\XCLIB_Console_FrameGrabber_v1.lib" /MACHINE:X86 /SAFESEH Release\XCLIB_FrameGrabber.obj
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_mesgFault@4
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_imageBdim@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_PIXCIclose@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_getGPIn@8
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_imageCdim@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_setGPIn@8
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_PIXCIopen@12
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_doSnap@12
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_mesgErrorCode@4
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_videoFieldCount@4
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_readuchar@36
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_infoUnits@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_saveBmp@36
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_setGPOut@8
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_imageXdim@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_readushort@36
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_infoMemsize@4
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_imageYdim@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_imageZdim@0
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxio8_jpegwrite@24
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_saveTiff@36
+     1>XCLIB_FrameGrabber.obj : error LNK2001: unresolved external symbol _pxd_defineImage@28
+     1>C:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Release\XCLIB_Console_FrameGrabber_v1.exe : fatal error LNK1120: 22 unresolved externals
+     1>Done Building Project "C:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Console_FrameGrabber_v1\XCLIB_Console_FrameGrabber_v1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.06

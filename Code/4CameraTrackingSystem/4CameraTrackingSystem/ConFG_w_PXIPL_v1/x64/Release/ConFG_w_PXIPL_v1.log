@@ -1,0 +1,15 @@
+﻿Build started 8/23/2016 10:25:51 AM.
+     1>Project "Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\ConFG_w_PXIPL_v1\ConFG_w_PXIPL_v1.vcxproj" on node 6 (Rebuild target(s)).
+     1>ClCompile:
+         I:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\EPIX\XCLIB" /Zi /nologo /W1 /WX- /O2 /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt CaptureLog.cpp Console_FrameGrabber_v1.cpp PXIPLfuns.cpp
+         CaptureLog.cpp
+         Console_FrameGrabber_v1.cpp
+     1>Console_FrameGrabber_v1.cpp(619): error C2065: 'lastBuff' : undeclared identifier
+     1>Console_FrameGrabber_v1.cpp(619): fatal error C1903: unable to recover from previous error(s); stopping compilation
+         PXIPLfuns.cpp
+         Generating Code...
+     1>Done Building Project "Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\ConFG_w_PXIPL_v1\ConFG_w_PXIPL_v1.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.77

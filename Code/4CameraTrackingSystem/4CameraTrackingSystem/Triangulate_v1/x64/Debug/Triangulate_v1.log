@@ -1,0 +1,7 @@
+﻿cl : Command line warning D9002: ignoring unknown option '/arch:SSE2'
+  CameraMatrix.cpp
+  Triangulate_v1.cpp
+  Generating Code...
+z:\repos\cameratrackingsystem-github\trunk\code\4cameratrackingsystem\4cameratrackingsystem\triangulate_v1\cameramatrix.cpp(197): warning C4715: 'cameraMatrix::Triangulate_OnePt': not all control paths return a value
+  Triangulate_v1.vcxproj -> Z:\Repos\CameraTrackingSystem-GitHub\trunk\Code\4CameraTrackingSystem\4CameraTrackingSystem\x64\Debug\Triangulate_v1.exe
+  Triangulate_v1.vcxproj -> Z:\Repos\CameraTrackingSystem-GitHub\trunk\Code\4CameraTrackingSystem\4CameraTrackingSystem\x64\Debug\Triangulate_v1.pdb (Full PDB)

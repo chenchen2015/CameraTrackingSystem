@@ -1,0 +1,13 @@
+﻿Build started 8/23/2016 10:25:51 AM.
+     1>Project "Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Console_Test\XCLIB_Console_Test.vcxproj" on node 8 (Rebuild target(s)).
+     1>ClCompile:
+         I:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\EPIX\XCLIB" /Zi /nologo /W1 /WX- /O2 /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Release\\" /Fd"x64\Release\vc120.pdb" /Gd /TP /errorReport:prompt XCLIB_Console.cpp
+         XCLIB_Console.cpp
+       Link:
+         I:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\x64\Release\XCLIB_Console_Test.exe" /NOLOGO /LIBPATH:"C:\Program Files\EPIX\XCLIB" XCLIBW64.lib PXIPLW64.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\x64\Release\XCLIB_Console_Test.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\x64\Release\XCLIB_Console_Test.lib" /MACHINE:X64 x64\Release\XCLIB_Console.obj
+         XCLIB_Console_Test.vcxproj -> Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\x64\Release\XCLIB_Console_Test.exe
+     1>Done Building Project "Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Console_Test\XCLIB_Console_Test.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.34

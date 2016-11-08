@@ -1,0 +1,73 @@
+function TriangulateTest()
+%% 
+% Try to Estimate the Optimal Transformation Between Reconstructed World 
+% Coordinates to Gantry Coordinates
+
+
+%%
+[worldPoints, GantryPos] = loc_Triangulate();
+
+%% Find Rigid Transorm (A => B)
+GantryPos = GantryPos * 100; % Gantry Unit: [cm]
+worldPoints = worldPoints / 10; % Unit: [cm]
+
+nPoints = size(worldPoints,1);
+
+[regParams,Bfit,ErrorStats]=absor(worldPoints',GantryPos','doScale',1);
+
+Bfit = Bfit';
+
+%% Calculate Error
+
+nrmError = zeros(nPoints,1,'double');
+for i = 1:nPoints
+    nrmError(i) = Bfit(i,:)-GantryPos
+end
+
+%% Re-Center All the Points
+% centroidGantry = mean(GantryPos);
+% centroidWorld = mean(worldPoints);
+% 
+% nPoints = size(GantryPos,1);
+% 
+% GantryRC = GantryPos - repmat(centroidGantry,nPoints,1);
+% WorldRC = worldPoints - repmat(centroidWorld,nPoints,1);
+% 
+% GantryRC = GantryRC';
+% WorldRC = WorldRC';
+
+%% Find Rigid Transorm (A => B) such that  B = R * A + t
+% H = GantryRC * WorldRC';
+% [U,~,V] = svd(H);
+% 
+% R = V * U'; % Rotation Matrix
+% t = -R * centroidGantry' + centroidWorld'; % Translation
+% 
+% if det(R) < 0
+%     fprintf('Reflection detected\n');
+%     V(:,3) = -1 * V(:,3);
+%     R = V * U';
+% end
+
+%% Verify the Accuracy of Recontruction
+% G2W = (R * GantryPos') + repmat(t, 1, nPoints);
+% G2W = G2W';
+% % Find the error
+% err = G2W - worldPoints;
+% err = err .* err;
+% err = sum(err(:));
+% rmse = sqrt(err/nPoints);
+% fprintf('RMSE: %f\n', rmse);
+
+end
+
+function [worldPoints, GantryPos] = loc_Triangulate()
+%% Load Stereo Camera Calibration Data
+load('StereoCameraCalibration-2.mat');
+load('TestImg-2.mat');
+
+[worldPoints,reprojectionErrors] = triangulate(matchedPt1,matchedPt2,stereoParams);
+
+end
+
+

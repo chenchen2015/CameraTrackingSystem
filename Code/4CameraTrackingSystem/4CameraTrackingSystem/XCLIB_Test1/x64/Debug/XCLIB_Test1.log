@@ -1,0 +1,2 @@
+﻿  xclibex2.cpp
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(1407,5): error MSB6003: The specified task executable "rc.exe" could not be run. Could not find file 'Z:\Repos\CameraTrackingSystem-GitHub\trunk\Code\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Test1\x64\Debug\XCLIB_Test1.tlog\rc.command.1.tlog'.

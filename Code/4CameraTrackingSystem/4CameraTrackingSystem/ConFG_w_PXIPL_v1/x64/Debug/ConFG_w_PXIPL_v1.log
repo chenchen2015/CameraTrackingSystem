@@ -1,0 +1,13 @@
+﻿  CaptureLog.cpp
+  Console_FrameGrabber_v1.cpp
+Console_FrameGrabber_v1.cpp(619): error C2065: 'lastBuff': undeclared identifier
+Console_FrameGrabber_v1.cpp(622): error C2065: 'lastBuff': undeclared identifier
+Console_FrameGrabber_v1.cpp(627): error C2065: 'imgBuff': undeclared identifier
+Console_FrameGrabber_v1.cpp(622): error C3861: 'tmpPxi3x3sobelPre': identifier not found
+Console_FrameGrabber_v1.cpp(638): error C2065: 'imgBuff': undeclared identifier
+Console_FrameGrabber_v1.cpp(638): error C3861: 'freePxiBufferMemory': identifier not found
+Console_FrameGrabber_v1.cpp(639): error C2065: 'imgBuff': undeclared identifier
+Console_FrameGrabber_v1.cpp(639): error C2541: 'delete': cannot delete objects that are not pointers
+Console_FrameGrabber_v1.cpp(640): error C2065: 'imgBuff': undeclared identifier
+  PXIPLfuns.cpp
+  Generating Code...

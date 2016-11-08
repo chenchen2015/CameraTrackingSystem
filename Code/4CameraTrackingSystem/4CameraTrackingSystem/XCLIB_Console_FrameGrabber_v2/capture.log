@@ -1,0 +1,72 @@
+XCLIB Capture log. local time Thu Mar 12 15:48:17 2015
+
+------------------------------------------------------------------------------------
+Opening EPIX(R) PIXCI(R) Frame Grabber,
+using configuration parameters '',
+and using format file 'MaxAOI_100FPS.fmt'.
+
+Frame grabber open successful.
+------------------------------------------------------------------------------------
+Image and Basic Video Information
+Image frame buffer memory size: 3495251.291 Kbytes
+Image frame buffers           : 853
+Number of boards              : 3
+------------------------------------------------------------------------------------
+Image resolution:
+xdim           = 2040
+ydim           = 2048
+colors         = 1
+bits per pixel = 8
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+Frame Capturing Loop
+Capturing frame #1
+Capturing frame #2
+Capturing frame #3
+Capturing frame #4
+Capturing frame #5
+Capturing frame #6
+Capturing frame #7
+Capturing frame #8
+Capturing frame #9
+Capturing frame #10
+Capturing frame #11
+Capturing frame #12
+Capturing frame #13
+Capturing frame #14
+Capturing frame #15
+Capturing frame #16
+Capturing frame #17
+Capturing frame #18
+Capturing frame #19
+Capturing frame #20
+Capturing frame #21
+Capturing frame #22
+Capturing frame #23
+Capturing frame #24
+Capturing frame #25
+Capturing frame #26
+Capturing frame #27
+Capturing frame #28
+Capturing frame #29
+Capturing frame #30
+Capturing frame #31
+Capturing frame #32
+Capturing frame #33
+Capturing frame #34
+Capturing frame #35
+Capturing frame #36
+Capturing frame #37
+Capturing frame #38
+Capturing frame #39
+Capturing frame #40
+Capturing frame #41
+Capturing frame #42
+Capturing frame #43
+Capturing frame #44
+Capturing frame #45
+Capturing frame #46
+Capturing frame #47
+Capturing frame #48
+Capturing frame #49
+Capturing frame #50

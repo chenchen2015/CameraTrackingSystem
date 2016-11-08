@@ -1,0 +1,56 @@
+/*
+ *
+ *	xclibex2.rc	External	23-May-2013
+ *
+ *	Copyright (C)  1998-2013  EPIX, Inc.  All rights reserved.
+ *
+ *	Example program for XCOBJ/XCLIB C Library: resource.
+ *
+ *
+ */
+
+#include <windows.h>
+#include <winver.h>
+#include "xclibex2.h"
+
+
+PIXCISVXDIALOG DIALOG DISCARDABLE  33, 56, 258, 240
+    STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU /* | WS_THICKFRAME*/
+    BEGIN
+	PUSHBUTTON	"Snap",     IDSNAP,	     190, 10,50,12,
+	PUSHBUTTON	"Live",     IDLIVE,	     190, 24,50,12,
+	PUSHBUTTON	"UnLive",   IDUNLIVE,	     190, 38,50,12,
+	PUSHBUTTON	"Save",     IDSAVE,	     190, 52,50,12,
+//	PUSHBUTTON	"Reset",    IDRESET,	     190, 66,50,12,
+
+	LTEXT		"Contrast", -1, 	     190, 76, 50, 8,
+	SCROLLBAR		   IDGAINSCROLL,     190, 86, 50, 8,
+	LTEXT		"Brightness",  -1,	     190, 96, 50, 8,
+	SCROLLBAR		   IDOFFSETSCROLL,   190, 106, 50, 8,
+	LTEXT		"Hue",	   -1,		     190, 116, 50, 8,
+	SCROLLBAR		   IDHUESCROLL,      190, 126, 50, 8,
+	RADIOBUTTON	"S-Video", IDSVIDEO,	     190, 140, 50, 8,
+	RADIOBUTTON	"BNC 1",   IDBNC1,	     190, 150, 50, 8,
+	RADIOBUTTON	"BNC 2",   IDBNC2,	     190, 160, 50, 8,
+	RADIOBUTTON	"BNC 3",   IDBNC3,	     190, 170, 50, 8,
+	RADIOBUTTON	"BNC 4",   IDBNC4,	     190, 180, 50, 8,
+	LTEXT		"",	   IDIMAGE,	     1,1,180,180
+	LTEXT		"",	   IDSTATUS1,	     1,185,180,8,
+	LTEXT		"",	   IDSTATUS2,	     1,195,180,8,
+	LTEXT		"",	   IDSTATUS3,	     1,205,180,8,
+	LTEXT		"",	   IDSTATUS4,	     1,215,180,8,
+	LTEXT		"",	   IDSTATUS5,	     1,225,180,8,
+    END
+
+PIXCIDIALOG DIALOG DISCARDABLE	33, 56, 258, 210
+    STYLE WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU /* | WS_THICKFRAME*/
+    BEGIN
+	PUSHBUTTON	"Snap",     IDSNAP,	     190, 10,50,12,
+	PUSHBUTTON	"Live",     IDLIVE,	     190, 24,50,12,
+	PUSHBUTTON	"UnLive",   IDUNLIVE,	     190, 38,50,12,
+	PUSHBUTTON	"Save",     IDSAVE,	     190, 52,50,12,
+
+	LTEXT		"",	    IDIMAGE,	     1,1,180,180
+	LTEXT		"",	    IDSTATUS1,	     1,185,180,8,
+	LTEXT		"",	    IDSTATUS2,	     1,195,180,8,
+    END

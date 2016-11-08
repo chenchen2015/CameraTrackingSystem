@@ -1,0 +1,14 @@
+﻿Build started 8/26/2016 9:37:29 AM.
+     1>Project "Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\Triangulate_v1\Triangulate_v1.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         I:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CameraMatrix.cpp Triangulate_v1.cpp
+         Triangulate_v1.cpp
+     1>z:\repos\ghostblade\camtrackingsystem\code\4cameratrackingsystem\4cameratrackingsystem\triangulate_v1\cameramatrix.hpp(9): fatal error C1083: Cannot open include file: 'Eigen/Dense': No such file or directory
+         CameraMatrix.cpp
+     1>z:\repos\ghostblade\camtrackingsystem\code\4cameratrackingsystem\4cameratrackingsystem\triangulate_v1\cameramatrix.hpp(9): fatal error C1083: Cannot open include file: 'Eigen/Dense': No such file or directory
+         Generating Code...
+     1>Done Building Project "Z:\Repos\ghostBlade\CamTrackingSystem\Code\4CameraTrackingSystem\4CameraTrackingSystem\Triangulate_v1\Triangulate_v1.vcxproj" (Rebuild target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.34

@@ -1,0 +1,37 @@
+﻿Build started 3/4/2015 5:14:20 PM.
+     1>Project "c:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Test1\XCLIB_Test1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Program Files\EPIX\XCLIB" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt xclibexp.cpp
+         xclibexp.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\user\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Debug\XCLIB_Test1.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\EPIX\XCLIB" XCLIBW64.lib PXIPLW64.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\user\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Debug\XCLIB_Test1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\user\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Debug\XCLIB_Test1.lib" /MACHINE:X86 Debug\xclibex2.res
+         Debug\XCLIB_Test1.res
+         Debug\stdafx.obj
+         Debug\xclibexp.obj
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_PIXCIopen@12 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_PIXCIclose@0 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_mesgFault@4 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_mesgErrorCode@4 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_infoUnits@0 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_imageXdim@0 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_imageYdim@0 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_imageCdim@0 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_imageBdim@0 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_imageZdim@0 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_imageAspectRatio@0 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_defineImage@28 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_goSnap@8 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_goLive@8 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_goUnLive@4 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_capturedFieldCount@4 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxd_saveTiff@36 referenced in function "int __stdcall PIXCIDialogProc(struct HWND__ *,unsigned int,unsigned int,long)" (?PIXCIDialogProc@@YGHPAUHWND__@@IIJ@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pximage_memmalloc2@40 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pximage_memfree2@8 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxip8_pixneg@12 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>xclibexp.obj : error LNK2019: unresolved external symbol _pxio8_GDIDisplay@44 referenced in function "void __cdecl DisplayBuffer(int,long,struct HWND__ *,struct pxywindow * const)" (?DisplayBuffer@@YAXHJPAUHWND__@@QAUpxywindow@@@Z)
+     1>c:\users\user\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\Debug\XCLIB_Test1.exe : fatal error LNK1120: 21 unresolved externals
+     1>Done Building Project "c:\Users\User\documents\visual studio 2013\Projects\4CameraTrackingSystem\4CameraTrackingSystem\XCLIB_Test1\XCLIB_Test1.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.50
