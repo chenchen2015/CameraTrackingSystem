@@ -215,6 +215,7 @@
 #include <string.h>		// c library
 #include <algorithm>
 #include <string>
+#include <iostream>
 #if defined(_WIN32) || defined(__WIN32__) || defined(_WIN64)
 #include <windows.h>
 #endif
@@ -230,6 +231,8 @@ extern "C" {
 #include "CaptureLog.hpp"
 #include "timeCount.hpp"
 #include "mex.h"           // to construct mex function in MATLAB
+#include <ctime>
+#include <chrono>
 //#include "PXIPLfun.hpp"
 
 
@@ -382,14 +385,26 @@ enum FileType{
 inline int savebmp ( UINT seq, pxbuffer_t buff = 1 )
 {
 	int     u, err = 0;
-	char name[] = IMAGEFILE_DIR "/Imgs/" "Unit#_Seq$$$$.bmp";
+	//char name[] = IMAGEFILE_DIR "/Imgs/" "Camera#_Session$$$_Sample$$$_Seq$$$$.bmp";
+	char name[] = IMAGEFILE_DIR "/Imgs/" "DD-MM-YYYY HH-MM-SS_Unit#_Seq$$$$.bmp";
 	char seqChar[] = "0000.bmp";
+	
 
 	for ( u = 0; u < UNITS; u++ ) {
-		name[11] = '0' + u;  // Units #
+		
+		time_t rawtime;
+		struct tm * timeinfo;
+		char buffer[80];
+		time(&rawtime);
+		timeinfo = localtime(&rawtime);
+		strftime(buffer, sizeof(buffer), "%d-%m-%Y %I-%M-%S", timeinfo);
+		std::string str(buffer);
+		str += "_Unit#_Seq$$$$.bmp";
+		strcpy(&name[7], str.c_str()); // time
+		
+		name[31] = '0' + u;  // Units #
 		sprintf ( seqChar, "%04d.bmp", seq );
-		strcpy ( &name[16], seqChar ); // Sequence $
-
+		strcpy ( &name[36], seqChar ); // Sequence $
 		//
 		// Don't overwrite existing file.
 		//
@@ -848,8 +863,9 @@ int initPIXCI (){
 *  as the compiled program is executed.
 *
 */
-int main (void)
+int main ()
 {
+	
 	//
 	// Say Hello
 	//
@@ -870,7 +886,7 @@ int main (void)
 	// Save image
 	//
 
-	UINT frames = 100;
+	UINT frames = 10;
 	//TimeT tBegin, tEnd;
 
 	//tBegin = TIME_NOW;
@@ -898,5 +914,7 @@ to construct mex function in MATLAB
 */
 void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[] )
 {
+	//int location = mxGetScalar(prhs[0]);
+	//int session = mxGetScalar(prhs[1]);
 	main();
 }
