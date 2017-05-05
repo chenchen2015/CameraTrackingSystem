@@ -92,7 +92,7 @@
 //#define FORMAT  "default"	  // as per board's intended camera
 
 // For any PIXCI(R) frame grabber
-#define FORMATFILE   "MaxAOI_100FPS.fmt"  // .. loaded from file during execution
+#define FORMATFILE   "MAX_AOI_19ms.fmt"  // .. loaded from file during execution
 #endif
 
 
@@ -886,7 +886,7 @@ int main ()
 	// Save image
 	//
 
-	UINT frames = 10;
+	UINT frames = 1;
 	//TimeT tBegin, tEnd;
 
 	//tBegin = TIME_NOW;
