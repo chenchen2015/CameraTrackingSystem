@@ -1,4 +1,4 @@
-XCLIB Capture log. local time Fri May  5 11:48:33 2017
+XCLIB Capture log. local time Wed May 10 11:27:53 2017
 
 ------------------------------------------------------------------------------------
 Opening EPIX(R) PIXCI(R) Frame Grabber,
@@ -20,5 +20,5 @@ bits per pixel = 12
 ------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------
 Frame Capturing Loop
-Capture: 1 frames, Time elapsed: 3.3700 ms, average FPS: 296.74
-Saving in BMP: 1 frames, Time elapsed: 553.3620 ms, average FPS: 1.81
+Capture: 1 frames, Time elapsed: 6.9470 ms, average FPS: 143.95
+Saving in BMP: 1 frames, Time elapsed: 587.6780 ms, average FPS: 1.70
