@@ -23,12 +23,19 @@ hLED = plot(0,0,'g.','MarkerSize',24);
 for i = 1:numOfImgs
     start = (dataSetNumber-1)*3;
     im = imread([imgPath,imgFileName{i+start}]);
-    bw = im2bw(im,graythresh(im));
+    thresh = graythresh(im);
+    if thresh < 0.1
+        trackedLED(i).LEDs = [];
+        trackedLED(i).Centroid = [];
+        trackedLED(i).Area = [];
+        continue
+    end
+    bw = im2bw(im,thresh);
     
     % Do blob detection
     stats = regionprops('table',bw,'Centroid','ConvexArea');
     
-    stats = stats(stats.Centroid(:,2) > 500 & stats.Centroid(:,2) < 1700,:);
+    stats = stats(stats.Centroid(:,2) > 500 & stats.Centroid(:,2) < 1700 & stats.ConvexArea > 500,:);
     
     if numel(stats.ConvexArea) == 3
         trackedLED(i).LEDs = stats;
@@ -59,9 +66,9 @@ for i = 1:numOfImgs
         trackedLED(i).Centroid = stats(idx(1),:).Centroid;
         trackedLED(i).Area = stats(idx(1),:).ConvexArea;
     elseif isempty(stats)
-        trackedLED(i).LEDs = stats;
-        trackedLED(i).Centroid = stats.Centroid;
-        trackedLED(i).Area = stats.ConvexArea;
+        trackedLED(i).LEDs = [];
+        trackedLED(i).Centroid = [];
+        trackedLED(i).Area = [];
     end
     
     % Update Plot
