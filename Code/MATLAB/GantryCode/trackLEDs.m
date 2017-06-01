@@ -72,9 +72,9 @@ for i = 1:numOfImgs
     end
     
     % Update Plot
-    hIm.CData = bw;
-    hLED.XData = trackedLED(i).LEDs.Centroid(:,1);
-    hLED.YData = trackedLED(i).LEDs.Centroid(:,2);
+    %hIm.CData = bw;
+    %hLED.XData = trackedLED(i).LEDs.Centroid(:,1);
+    %hLED.YData = trackedLED(i).LEDs.Centroid(:,2);
     %%pause;
 end
 
