@@ -1,0 +1,39 @@
+﻿  CamMatrix.cpp
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\arch\cuda\half.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(35): warning C4305: 'argument': truncation from 'double' to 'const float'
+  e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctions.h(1185): note: see reference to function template instantiation 'T Eigen::internal::generic_fast_tanh_float<float>(const T &)' being compiled
+          with
+          [
+              T=float
+          ]
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(36): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(37): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(38): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(39): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(40): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(41): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(44): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(45): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(46): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(47): warning C4305: 'argument': truncation from 'double' to 'const float'
+  mainfn.cpp
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\arch\cuda\half.h : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(35): warning C4305: 'argument': truncation from 'double' to 'const float'
+  e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctions.h(1185): note: see reference to function template instantiation 'T Eigen::internal::generic_fast_tanh_float<float>(const T &)' being compiled
+          with
+          [
+              T=float
+          ]
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(36): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(37): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(38): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(39): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(40): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(41): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(44): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(45): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(46): warning C4305: 'argument': truncation from 'double' to 'const float'
+e:\c++ project\consoleapplication1\library\eigen\eigen\src\core\mathfunctionsimpl.h(47): warning C4305: 'argument': truncation from 'double' to 'const float'
+  LINK : E:\CameraTrackingSystem\Sherwin's folder\ConsoleApplication1\Debug\TrackingSystem.exe not found or not built by the last incremental link; performing full link
+  ConsoleApplication1.vcxproj -> E:\CameraTrackingSystem\Sherwin's folder\ConsoleApplication1\Debug\TrackingSystem.exe
+  ConsoleApplication1.vcxproj -> E:\CameraTrackingSystem\Sherwin's folder\ConsoleApplication1\Debug\TrackingSystem.pdb (Full PDB)
