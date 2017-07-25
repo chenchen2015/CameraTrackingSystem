@@ -1,7 +1,0 @@
-﻿  OpenCV_test.cpp
-e:\cameratrackingsystem\code\4cameratrackingsystem\library\opencv\v3.1\include\opencv2\core\mat.hpp(1914): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-e:\cameratrackingsystem\code\4cameratrackingsystem\library\opencv\v3.1\include\opencv2\core\persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-e:\cameratrackingsystem\code\4cameratrackingsystem\library\opencv\v3.1\include\opencv2\core\utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-e:\cameratrackingsystem\code\4cameratrackingsystem\library\opencv\v3.1\include\opencv2\core\utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
-  ImageProcessing.vcxproj -> E:\CameraTrackingSystem\Sherwin's folder\ImageProcessing\x64\Debug\ImageProcessing.exe
-  ImageProcessing.vcxproj -> E:\CameraTrackingSystem\Sherwin's folder\ImageProcessing\x64\Debug\ImageProcessing.pdb (Partial PDB)
