@@ -7,6 +7,9 @@ function worldPoints = TriangulateTest()
 % 8/10/2016
 
 %%
+addpath('Z:\Repos\ghostBlade\CamTrackingSystem\Code\MATLAB\GantryCode\Imgs\PlotPub-master\lib');
+
+%%
 [worldPoints, GantryPos] = loc_Triangulate();
 
 %% Find Optimal Rigid Transorm (A => B)
@@ -26,12 +29,12 @@ for i = 1:nPoints
 end
 
 % Plot Result
-figure;
-subplot(1,2,1);
-bar(nrmError,'b');
-xlabel('Trial #');
-ylabel('Reprojection Error [cm]');
-title('Reprojection Error - Optimal Rigid Transformation Method');
+figure(1);clf;
+% subplot(1,2,1);
+% bar(nrmError,'b');
+% xlabel('Trial #');
+% ylabel('Reprojection Error [cm]');
+% title('Reprojection Error - Optimal Rigid Transformation Method');
 
 %% Bayesian Neural Network Method
 % Calculate Reprojected Gantry Points
@@ -44,11 +47,28 @@ for i = 1:nPoints
 end
 
 % Plot Result
-subplot(1,2,2);
+% subplot(1,2,2);
 bar(nrmError,'b');
 xlabel('Trial #');
 ylabel('Reprojection Error [cm]');
-title('Reprojection Error - Non-Rigid Transform');
+title('Reprojection Error - Regression Method');
+
+%% Make Pretty Plot
+savefig('Reconstruction2.fig')
+% load previously generated fig file
+figFile = 'Reconstruction2.fig';
+open(figFile)
+
+opt.XLabel = 'Trial #'; % xlabel
+opt.YLabel = 'Reprojection Error [cm]'; %ylabel
+opt.LineWidth = 2; % line width
+opt.BoxDim = [10, 5]; %[width, height] in inches
+
+% Save? comment the following line if you do not want to save
+opt.FileName = 'Reconstruction2.png'; 
+
+% create the plot
+setPlotProp(opt);
 
 end
 

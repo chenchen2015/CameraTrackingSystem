@@ -345,11 +345,10 @@ void do_vidsize (void)
 */
 int checkexist (char *name)
 {
-	FILE    *fp;
+	FILE *fp;
 	if ( ( fp = fopen (name, "rb") ) != NULL ) {
+        // File already exist
 		fclose (fp);
-		xclibAppendLogConsole ( "Image not saved, file %s already exists\n", name );
-		//user ("");
 		return( 1 );
 	}
 	return( 0 );
@@ -369,9 +368,9 @@ void hello (void)
 {
 	xclibRestartLog (); // Restart XCLIB Log file
 
-	printf ("\n\n");
-	printf ("PIXCI(R) Frame Grabber v3 - Based on XCLIB 'C' Library\n");
-	printf ("\n");
+	//printf ("\n\n");
+	//printf ("PIXCI(R) Frame Grabber v3 - Based on XCLIB 'C' Library\n");
+	//printf ("\n");
 	//user ("");
 }
 
@@ -382,34 +381,15 @@ enum FileType{
 	TIFF
 };
 
-inline int savebmp ( UINT seq, pxbuffer_t buff = 1 )
+inline int savebmp ( UINT seq, pxbuffer_t buff = 1, char *fname = "" )
 {
 	int     u, err = 0;
-	//char name[] = IMAGEFILE_DIR "/Imgs/" "Camera#_Session$$$_Sample$$$_Seq$$$$.bmp";
-	char name[] = IMAGEFILE_DIR "/Imgs/" "DD-MM-YYYY HH-MM-SS_Unit#_Seq$$$$.bmp";
-	char seqChar[] = "0000.bmp";
-	
-
 	for ( u = 0; u < UNITS; u++ ) {
-		
-		time_t rawtime;
-		struct tm * timeinfo;
-		char buffer[80];
-		time(&rawtime);
-		timeinfo = localtime(&rawtime);
-		strftime(buffer, sizeof(buffer), "%d-%m-%Y %I-%M-%S", timeinfo);
-		std::string str(buffer);
-		str += "_Unit#_Seq$$$$.bmp";
-		strcpy(&name[7], str.c_str()); // time
-		
-		name[31] = '0' + u;  // Units #
-		sprintf ( seqChar, "%04d.bmp", seq );
-		strcpy ( &name[36], seqChar ); // Sequence $
 		//
 		// Don't overwrite existing file.
 		//
 		//if ( checkexist ( name ) )	return -23;
-
+        fname[11] = '0' + u;
 		//
 		// Do save of entire image to disk in Bitmap format.
 		// Monochrome image buffers are saved as an 8 bit monochrome image,
@@ -418,7 +398,7 @@ inline int savebmp ( UINT seq, pxbuffer_t buff = 1 )
 		// int pxd_saveBmp(unitmap, pathname, framebuf, ulx, uly, lrx, lry, savemode, options);
 		err = pxd_saveBmp (
 			1 << u,		// Unit selection bit map (1 for single unit)
-			name,		// File path name to load from, or save to
+			fname,		// File path name to load from, or save to
 			buff,		// Image frame buffer
 			0,			// Upper left x coord. of area of interest
 			0,			// Upper left y coord. of area of interest
@@ -665,7 +645,7 @@ int CaptureLoopLivePair ( UINT numFrames, FileType fileType ){
 	return 0;
 }
 
-int CaptureLoopLiveSeq ( UINT numFrames, FileType fileType ){
+int CaptureLoopLiveSeq ( UINT numFrames, FileType fileType, char *fname ){
 	int err = 0;
 	UINT startBuf, endBuf, incBuf;
 	unsigned long strField, endField;
@@ -706,10 +686,9 @@ int CaptureLoopLiveSeq ( UINT numFrames, FileType fileType ){
 	for ( UINT i = 1; i <= numFrames; i++ ){
 		//xclibAppendLogConsole ( "Capturing frame #%d\n", i );
 
-
 		switch ( fileType ){
 		case FileType::BMP:
-			err = savebmp ( i, i );
+			err = savebmp ( i, i, fname );
 			break;
 		case FileType::TIFF:
 			err = savetiff ( i, i );
@@ -774,7 +753,7 @@ int CaptureLoopLiveSeq ( UINT numFrames, FileType fileType ){
 	return 0;
 }
 
-int CaptureLoopSnap ( UINT numFrames, FileType fileType ){
+int CaptureLoopSnap ( UINT numFrames, FileType fileType, char *fname ){
 	int err = 0;
 	LOG_LINE_SEG;
 	xclibAppendLogConsole ( "Frame Capturing Loop\n" );
@@ -789,7 +768,7 @@ int CaptureLoopSnap ( UINT numFrames, FileType fileType ){
 
 		switch ( fileType ){
 		case FileType::BMP:
-			err = savebmp ( i );
+			err = savebmp ( i, 1, fname );
 			break;
 		case FileType::TIFF:
 			err = savetiff ( i );
@@ -863,14 +842,8 @@ int initPIXCI (){
 *  as the compiled program is executed.
 *
 */
-int main ()
+int main (char *fname)
 {
-	
-	//
-	// Say Hello
-	//
-	hello ();
-
 	//
 	// Open and set video format.
 	//
@@ -879,8 +852,8 @@ int main ()
 	//
 	// Basic video operations
 	//
-	do_imsize ();
-	do_vidsize ();
+	//do_imsize ();
+	//do_vidsize ();
 
 	//
 	// Save image
@@ -891,7 +864,7 @@ int main ()
 
 	//tBegin = TIME_NOW;
 
-	CaptureLoopLiveSeq ( frames, FileType::BMP );
+	CaptureLoopSnap ( frames, FileType::BMP, fname );
 	//CaptureLoopLiveSeq ( frames, FileType::TIFF );
 	//CaptureLoopLiveSeq ( frames, FileType::JPEG );
 
@@ -914,7 +887,7 @@ to construct mex function in MATLAB
 */
 void mexFunction( int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[] )
 {
-	//int location = mxGetScalar(prhs[0]);
-	//int session = mxGetScalar(prhs[1]);
-	main();
+	char *input_buf = mxArrayToString(prhs[0]);
+    printf ("File name: %s\n", input_buf);
+    main(input_buf);
 }
