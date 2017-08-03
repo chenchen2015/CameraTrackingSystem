@@ -389,7 +389,7 @@ inline int savebmp ( UINT seq, pxbuffer_t buff = 1, char *fname = "" )
 		// Don't overwrite existing file.
 		//
 		//if ( checkexist ( name ) )	return -23;
-        fname[11] = '0' + u;
+        fname[11] = '0' + u;  // TODO: Replace index with search
 		//
 		// Do save of entire image to disk in Bitmap format.
 		// Monochrome image buffers are saved as an 8 bit monochrome image,

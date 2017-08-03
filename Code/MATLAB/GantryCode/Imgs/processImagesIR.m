@@ -2,7 +2,7 @@ function processImagesIR
 %% Track IR LEDs and Save Tracked Result
 
 %% File Select
-imgPath = './trial4/IR/';
+imgPath = './';
 allFiles = dir(fullfile(imgPath, '*.bmp'));
 imgFileName = {allFiles.name};
 numOfImgs = length(allFiles);
@@ -12,7 +12,7 @@ nUnits = 3;
 nSamples = ceil(numOfImgs / nUnits);
 
 % Preallocate Memory
-% trackedLED(nUnits).LEDs = struct;
+ trackedLED(nUnits).LEDs = struct;
 for i = 1:nUnits
     trackedLED(i).Centroid = zeros(nSamples,2);
 end
