@@ -3,7 +3,7 @@ g = GantryMove('192.168.1.121');
 g.Connect;
 
 %% Prepare sample space and image handle
-numberOfPos = 10;         % Number of samples to process
+numberOfPos = 1;         % Number of samples to process
 result(numberOfPos).gantryPos = [];
 result(numberOfPos).estimatedPos = [];
 
@@ -59,10 +59,12 @@ for i = 1:numberOfPos
     elseif ~isempty(find(trackedLED(2).Centroid == 0, 1))
         result(i).estimatedPos = regModelView13(matchedPairs(2,:));
     elseif ~isempty(find(trackedLED(3).Centroid == 0, 1))
-        result(i).estimatedPos = regModelView12(matchedPairs(2,:));
+        result(i).estimatedPos = regModelView12(matchedPairs(1,:));
     else
         result(i).estimatedPos = regModelView123(cat(2,trackedLED(1).Centroid, trackedLED(2).Centroid, trackedLED(3).Centroid));
     end
+    
+    result(i).dist = norm(result(i).gantryPos(1:3).' - result(i).estimatedPos(1:3));
 %     result(i).estimatedPos = regModelView12(matchedPairs(1,:));
 %     fprintf('Estimated 3D coordinate from cameara 1 and 2: %d,%d,%d\n', output1(1), output1(2), output1(3));
 %     result(i).estimatedPos = regModelView13(matchedPairs(2,:));

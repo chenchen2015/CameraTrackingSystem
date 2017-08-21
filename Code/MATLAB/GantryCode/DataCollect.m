@@ -5,8 +5,8 @@ g = GantryMove('192.168.1.121');
 g.Connect;
 
 %% Prepare spatial samples
-sampleNum2D = 25;
-sampleNumDepth = 3;
+sampleNum2D = 100;
+sampleNumDepth = 4;
 nTotalSamples = sampleNum2D * sampleNumDepth;
 ganPosSampleList = zeros(nTotalSamples, 4);
 %                 X ,   Y  , Depth
@@ -19,7 +19,7 @@ ySamples = linspace(GanPosLimit(1,2),GanPosLimit(2,2),sampleNum2D^0.5);
 depthSamples = linspace(GanPosLimit(1,3),GanPosLimit(2,3),sampleNumDepth);
 [x,y,z] = meshgrid(xSamples,ySamples,depthSamples);
 yy = y(:);
-for i = 1:2:(sampleNum2D^0.5)*3-1
+for i = 1:2:(sampleNum2D^0.5)*sampleNumDepth-1
     yy( (i*sampleNum2D^0.5+1):((i+1)*sampleNum2D^0.5) ) = flip(yy( (i*sampleNum2D^0.5+1):((i+1)*sampleNum2D^0.5) ));
 end
 
@@ -58,14 +58,14 @@ for i = 1:nTotalSamples
     
     disp('Capturing image...');
     tic;
-    Console_FrameGrabber_v1(sprintf('./Imgs/Unit$-Samp%02d.bmp', i));
+    Console_FrameGrabber_v1(sprintf('./Imgs/Unit$-Samp%03d.bmp', i));
     toc;
     pause(0.5);
 end
 
 g.Disconnect;
 
-save('./Imgs/session1.mat', 'ganPosSampleList');
+save('./Imgs/session3.mat', 'ganPosSampleList');
 
 % for i = 1:sampleNum
 %     trackLEDs(i, gantryPos(i,:));

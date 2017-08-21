@@ -11,7 +11,7 @@ numOfImgs = length(IRFiles);
 
 %% Process Each Image
 nUnits = 3;
-nSamples = 1;
+nSamples = ceil(numOfImgs / nUnits);
 
 % Preallocate Memory
 trackedLED(nUnits).LEDs = struct;
@@ -27,9 +27,10 @@ sortMethod = 'ascend';
 
 % Process all the images
 for i = 1:numOfImgs
-    A = sscanf(IRFileName{i},'Unit%1d-Samp.bmp');
+% for i = 1100:1200
+    A = sscanf(IRFileName{i},'Unit%1d-Samp%03d.bmp');
     unitID = A(1) + 1;
-    sampID = 1;
+    sampID = A(2);
     im_IR = imread([imgPath,IRFileName{i}]);
 %     im_NoIR = imread([imgPath,NoIRFileName{i}]);
 %     seg_im = imquantize(im_NoIR,multithresh(im_NoIR,4));
@@ -59,11 +60,11 @@ for i = 1:numOfImgs
 %         stats = stats(stats.ConvexArea > 25,:);
 %     end
     
-    % Sort and get the largest 6 blobs
-    [~,idx] = sort(stats.ConvexArea,'descend');
-    if length(idx) > 9
-        stats = stats(idx(1:9),:);
-    end
+%     % Sort and get the largest 6 blobs
+%     [~,idx] = sort(stats.ConvexArea,'descend');
+%     if length(idx) > 15
+%         stats = stats(idx(1:15),:);
+%     end
     
     % Kmeans clustering, two clusters
     nBlobs = numel(stats.ConvexArea);
@@ -79,12 +80,12 @@ for i = 1:numOfImgs
         trackedLED(unitID).Centroid(sampID,:) = stats.Centroid(1,:);
     else
         trackedLED(unitID).LEDs = [];
-        trackedLED(unitID).Centroid = zeros(1,2);
-%         hIm.CData = double(im) / 255;
-%         hLED.Color = 'r';
-%         hLED.XData = 5;
-%         hLED.YData = 5;
-%         pause(0.01);
+        trackedLED(unitID).Centroid(sampID,:) = zeros(1,2);
+        hIm.CData = double(im_IR) / 255;
+        hLED.Color = 'r';
+        hLED.XData = 5;
+        hLED.YData = 5;
+        pause(0.05);
         continue;
     end
     
@@ -129,17 +130,17 @@ for i = 1:numOfImgs
     hLED.XData = trackedLED(unitID).Centroid(sampID,1);
     hLED.YData = trackedLED(unitID).Centroid(sampID,2);
 
-%     pause();
+    pause(0.05);
 %     save('Data1.mat','trackedLED');
 end
 
 %% Assemble Output Data Structure
-% dataSetStr = 'realTime';
-% Comment = strcat('DataSet-', dataSetStr);
-% SampleTime = datestr(now,'mm-dd-yyyy');
-% 
-% % Save Data
-% save(SampleTime,'trackedLED','SampleTime');
+dataSetStr = 'realTime';
+Comment = strcat('DataSet-', dataSetStr);
+SampleTime = datestr(now,'mm-dd-yyyy');
+
+% Save Data
+save(SampleTime,'trackedLED','SampleTime');
 
 end
 
@@ -147,7 +148,7 @@ function center = checkThreeClusters(centroid, sortMethod)
 [idx2, c2] = kmeans(centroid,3);
 
 [c2_sort, idx] = sort(c2(:,2));
-if min(diff(c2_sort)) > 80
+if max(diff(c2_sort)) < 20 || min(diff(c2_sort)) > 80
     % Detected two shadows
     % Use the middle 
     center = mean(centroid(idx2 == idx(2),:),1);
