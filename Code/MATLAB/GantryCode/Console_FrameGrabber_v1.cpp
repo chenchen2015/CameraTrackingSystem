@@ -111,14 +111,14 @@
 */
 #define UNIT0BITMASK	1	// Camera #1
 #define UNIT1BITMASK	2	// Camera #2
-#define UNIT2BITMASK	4	// 
-#define UNIT3BITMASK	8	// Camera #3
+#define UNIT2BITMASK	4	// Camera #3 - The unused camera
+#define UNIT3BITMASK	8	// Camera #4
 
 #if !defined(UNITS)
-#define UNITS	3
+#define UNITS	4
 #endif
 //#define UNITSMAP    ((1<<UNITS)-1)  /* shorthand - bitmap of all units */
-#define UNITSMAP    ( UNIT0BITMASK | UNIT1BITMASK | UNIT2BITMASK )  /* shorthand - bitmap of all units */
+#define UNITSMAP    ( UNIT0BITMASK | UNIT1BITMASK | UNIT2BITMASK | UNIT3BITMASK)  /* shorthand - bitmap of all units */
 #if !defined(UNITSOPENMAP)
 #define UNITSOPENMAP UNITSMAP
 #endif

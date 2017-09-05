@@ -8,15 +8,18 @@ result(numberOfPos).gantryPos = [];
 result(numberOfPos).estimatedPos = [];
 
 figure(1);clf;             % Initialize figure 1 with 3 subplots
-h1 = subplot(1,3,1);
+h1 = subplot(1,4,1);
 hIm1 = imshow(rand(2048), 'Parent', h1);hold on;
 hLED1 = plot(0,0,'g.','MarkerSize',15);
-h2 = subplot(1,3,2);
+h2 = subplot(1,4,2);
 hIm2 = imshow(rand(2048), 'Parent', h2);hold on;
 hLED2 = plot(0,0,'g.','MarkerSize',15);
-h3 = subplot(1,3,3);
+h3 = subplot(1,4,3);
 hIm3 = imshow(rand(2048), 'Parent', h3);hold on;
 hLED3 = plot(0,0,'g.','MarkerSize',15);
+h4 = subplot(1,4,4);
+hIm4 = imshow(rand(2048), 'Parent', h4);hold on;
+hLED4 = plot(0,0,'g.','MarkerSize',15);
 
 %% Main loop
 for i = 1:numberOfPos
@@ -38,30 +41,38 @@ for i = 1:numberOfPos
     hLED2.XData = trackedLED(2).Centroid(1);
     hLED2.YData = trackedLED(2).Centroid(2);
     
-    subplot(1,3,3);
     im3 = double(imread('./Imgs/Unit2-Samp.bmp'));
 %     bw3 = im2bw(im3,graythresh(im3));
     hIm3.CData = im3/255;hold on;
     hLED3.XData = trackedLED(3).Centroid(1);
     hLED3.YData = trackedLED(3).Centroid(2);
+    
+    im4 = double(imread('./Imgs/Unit3-Samp.bmp'));
+%     bw4 = im2bw(im4,graythresh(im4));
+    hIm4.CData = im4/255;hold on;
+    hLED4.XData = trackedLED(4).Centroid(1);
+    hLED4.YData = trackedLED(4).Centroid(2);
     pause(0.05);
     
     % Record estimated positions
-    matchedPairs = zeros(3,4);
-    matchedPairs(1,:) = cat(2,trackedLED(1).Centroid, trackedLED(2).Centroid);
-    matchedPairs(2,:) = cat(2,trackedLED(1).Centroid, trackedLED(3).Centroid);
-    matchedPairs(3,:) = cat(2,trackedLED(2).Centroid, trackedLED(3).Centroid);
+    matchedPairs = zeros(4,6);
+    matchedPairs(1,:) = cat(2,trackedLED(1).Centroid, trackedLED(2).Centroid, trackedLED(3).Centroid);
+    matchedPairs(2,:) = cat(2,trackedLED(1).Centroid, trackedLED(2).Centroid, trackedLED(4).Centroid);
+    matchedPairs(3,:) = cat(2,trackedLED(1).Centroid, trackedLED(3).Centroid, trackedLED(4).Centroid);
+    matchedPairs(4,:) = cat(2,trackedLED(2).Centroid, trackedLED(3).Centroid, trackedLED(4).Centroid);
     
-    if length(find(~matchedPairs)) > 4
-        result(i).estimatedPos = zeros(1,3);
+    if length(find(~matchedPairs)) > 6
+        result(i).estimatedPos = zeros(1,2);
     elseif ~isempty(find(trackedLED(1).Centroid == 0, 1))
-        result(i).estimatedPos = regModelView23(matchedPairs(3,:));
+        result(i).estimatedPos = NeuralNetwork234(matchedPairs(4,:));
     elseif ~isempty(find(trackedLED(2).Centroid == 0, 1))
-        result(i).estimatedPos = regModelView13(matchedPairs(2,:));
+        result(i).estimatedPos = NeuralNetwork134(matchedPairs(3,:));
     elseif ~isempty(find(trackedLED(3).Centroid == 0, 1))
-        result(i).estimatedPos = regModelView12(matchedPairs(1,:));
-    else
-        result(i).estimatedPos = regModelView123(cat(2,trackedLED(1).Centroid, trackedLED(2).Centroid, trackedLED(3).Centroid));
+        result(i).estimatedPos = NeuralNetwork124(matchedPairs(2,:));
+    else%if ~isempty(find(trackedLED(4).Centroid == 0, 1))
+        result(i).estimatedPos = NeuralNetwork123(matchedPairs(1,:));
+%     else
+%         result(i).estimatedPos = NeuralNetwork1234(cat(2,trackedLED(1).Centroid, trackedLED(2).Centroid, trackedLED(3).Centroid, trackedLED(4).Centroid));
     end
     
     result(i).dist = norm(result(i).gantryPos(1:3).' - result(i).estimatedPos(1:3));

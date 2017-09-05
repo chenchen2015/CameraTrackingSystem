@@ -5,8 +5,8 @@ g = GantryMove('192.168.1.121');
 g.Connect;
 
 %% Prepare spatial samples
-sampleNum2D = 100;
-sampleNumDepth = 4;
+sampleNum2D = 49;
+sampleNumDepth = 3;
 nTotalSamples = sampleNum2D * sampleNumDepth;
 ganPosSampleList = zeros(nTotalSamples, 4);
 %                 X ,   Y  , Depth
@@ -65,7 +65,7 @@ end
 
 g.Disconnect;
 
-save('./Imgs/session3.mat', 'ganPosSampleList');
+save('./Imgs/session4.mat', 'ganPosSampleList');
 
 % for i = 1:sampleNum
 %     trackLEDs(i, gantryPos(i,:));

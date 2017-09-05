@@ -10,7 +10,7 @@ IRFileName = {IRFiles.name};
 numOfImgs = length(IRFiles);
 
 %% Process Each Image
-nUnits = 3;
+nUnits = 4;
 nSamples = ceil(numOfImgs / nUnits);
 
 % Preallocate Memory
@@ -27,23 +27,30 @@ sortMethod = 'ascend';
 
 % Process all the images
 for i = 1:numOfImgs
-% for i = 1100:1200
+% for i = 550:588
     A = sscanf(IRFileName{i},'Unit%1d-Samp%03d.bmp');
     unitID = A(1) + 1;
-    sampID = A(2);
+%     sampID = A(2);
+    sampID = 1;
     im_IR = imread([imgPath,IRFileName{i}]);
 %     im_NoIR = imread([imgPath,NoIRFileName{i}]);
 %     seg_im = imquantize(im_NoIR,multithresh(im_NoIR,4));
-    bw = im2bw(im_IR, 0.99);
+    Iblur = imgaussfilt(im_IR, 10);
+    thresh = graythresh(Iblur);
+    if thresh < 0.21
+        bw = im2bw(im_IR,0.8);
+    else
+        bw = im2bw(Iblur, thresh);
+    end
+    
 %     thresh = graythresh(im) + 0.1;
 %     thresh = 0.6;
     
-    % If no LED is found
+%     If no LED is found
 %     if thresh < 0.1
-%         trackedLED(i).LEDs = [];
-%         trackedLED(i).Centroid(sampID,:) = [];
-%         trackedLED(i).Area(sampID) = [];
-%         hIm.CData = double(im) / 255;
+%         trackedLED(unitID).LEDs = [];
+%         trackedLED(unitID).Centroid(sampID,:) = zeros(1,2);
+%         hIm.CData = double(im_IR) / 255;
 % %         hIm.CData = bw;
 %         hLED.Color = 'r';
 %         hLED.XData = 5;
@@ -56,9 +63,9 @@ for i = 1:numOfImgs
     
     % Do blob detection
     stats = regionprops('table',bw,'Centroid','ConvexArea');
-%     if ~isempty(stats)
-%         stats = stats(stats.ConvexArea > 25,:);
-%     end
+    if ~isempty(stats)
+        stats = stats(stats.ConvexArea > 5,:);
+    end
     
 %     % Sort and get the largest 6 blobs
 %     [~,idx] = sort(stats.ConvexArea,'descend');
@@ -92,7 +99,7 @@ for i = 1:numOfImgs
 %     stats = stats(stats.Centroid(:,2) > 500 & stats.Centroid(:,2) < 1700 & stats.ConvexArea > 300,:);
     
     
-    fprintf('LED tracked - idx #%d, Unit #%d, Samp #%02d, n = %d\n', i, unitID, sampID, numel(stats.ConvexArea));
+    fprintf('LED tracked - idx #%d, Unit #%d, Samp #%03d, n = %d\n', i, unitID, sampID, numel(stats.ConvexArea));
 %     if numel(stats.ConvexArea) == 3
 % %         trackedLED(i).LEDs = stats;
 %         trackedLED(i).Centroid(sampID,:) = mean(stats.Centroid);
@@ -140,7 +147,7 @@ Comment = strcat('DataSet-', dataSetStr);
 SampleTime = datestr(now,'mm-dd-yyyy');
 
 % Save Data
-save(SampleTime,'trackedLED','SampleTime');
+% save(SampleTime,'trackedLED','SampleTime');
 
 end
 
@@ -148,10 +155,16 @@ function center = checkThreeClusters(centroid, sortMethod)
 [idx2, c2] = kmeans(centroid,3);
 
 [c2_sort, idx] = sort(c2(:,2));
-if max(diff(c2_sort)) < 20 || min(diff(c2_sort)) > 80
+if min(diff(c2_sort)) > 30 
     % Detected two shadows
     % Use the middle 
-    center = mean(centroid(idx2 == idx(2),:),1);
+    c = [1024,1024];
+    dist = [];
+    dist(1) = norm(c2(1,:) - c);
+    dist(2) = norm(c2(2,:) - c);
+    dist(3) = norm(c2(3,:) - c);
+    [~, idx] = min(dist);
+    center = mean(centroid(idx2 == idx,:),1);
 else
     [idx1, c1] = kmeans(centroid,2);
     
