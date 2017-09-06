@@ -64,7 +64,7 @@ for i = 1:numOfImgs
     % Do blob detection
     stats = regionprops('table',bw,'Centroid','ConvexArea');
     if ~isempty(stats)
-        stats = stats(stats.ConvexArea > 5,:);
+        stats = stats(stats.ConvexArea > 10,:);
     end
     
 %     % Sort and get the largest 6 blobs

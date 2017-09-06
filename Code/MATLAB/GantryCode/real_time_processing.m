@@ -23,8 +23,9 @@ hLED4 = plot(0,0,'g.','MarkerSize',15);
 
 %% Main loop
 for i = 1:numberOfPos
-    result(i).gantryPos = g.GetGanPosSnap;       % Capture real gantry position
+    
     Console_FrameGrabber_v1('./Imgs/Unit$-Samp.bmp');       % Capture images from frame grabber
+    result(i).gantryPos = g.GetGanPosSnap;       % Capture real gantry position
     trackedLED = processImages;
   
     % display images with processing results
